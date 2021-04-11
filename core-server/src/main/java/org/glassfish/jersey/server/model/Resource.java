@@ -800,10 +800,8 @@ public final class Resource implements Routed, ResourceModelComponent {
      * resource, {@code false} otherwise.
      */
     public static boolean isAcceptable(Class<?> c) {
-        return !((c.getModifiers() & Modifier.ABSTRACT) != 0
-                         || c.isPrimitive()
+        return !(c.isPrimitive()
                          || c.isAnnotation()
-                         || c.isInterface()
                          || c.isLocalClass()
                          || (c.isMemberClass() && (c.getModifiers() & Modifier.STATIC) == 0));
     }
